@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinivasan B | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --secondary-color: #0984e3;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --card-bg: #f8f9fa;
+            --nav-bg: var(--card-bg);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #f8f9fa;
+            --secondary-color: #74b9ff;
+            --bg-color: #2d3436;
+            --text-color: #ffffff;
+            --card-bg: #3d4346;
+            --nav-bg: #343a40;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px auto;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .navbar {
+            background-color: var(--nav-bg) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: var(--text-color) !important;
+        }
+
+        .navbar-toggler {
+            border-color: var(--text-color);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            padding: 8px 12px;
+            margin-left: 15px;
+        }
+
+        .theme-toggle i {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.03);
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            width: 2px;
+            height: 100%;
+            background: var(--secondary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Srinivasan B</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section pt-5 mt-5">
+        <div class="container text-center">
+            <img src="pro5.jpg" alt="Srinivasan B" class="profile-img">
+            <h1 class="display-4 mb-3">Srinivasan B</h1>
+            <p class="lead">Web Developer & Android App Developer</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="mb-4">About Me</h2>
+            <p class="lead">Hardworking and eager-to-learn BE graduate with a strong foundation in full-stack
+                development. Proficient in Flutter, Dart, HTML, CSS, and Python, with experience in
+                building mobile and web applications. Passionate about time management and optimizing
+                workflows to enhance productivity. Dedicated to continuous learning and leveraging
+                technology to develop innovative solutions.</p>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4">Resume</h2>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resumeModal">
+                View Full Resume
+            </button>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="mb-4">Projects</h2>
+            <div class="row g-4">
+                 <!-- Project Card 1 -->
+                 <div class="col-md-4">
+                    <div class="card project-card" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                        <img src="mu.webp" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Music Player App</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="col-md-4">
+                    <div class="card project-card" data-bs-toggle="modal" data-bs-target="#projectModal2">
+                        <img src="exp.jpg" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Expenses Tracker App</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="col-md-4">
+                    <div class="card project-card" data-bs-toggle="modal" data-bs-target="#projectModal3">
+                        <img src="todo.png" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">To-Do App</h5>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-4">Contact</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <form action="mailto:srinibai2005@gmail.com" method="post" enctype="text/plain">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Full Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email Address">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button> <!-- Contact form (same as before) -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Resume Modal -->
+    <div class="modal fade" id="resumeModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Srinivasan B - Full Resume</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Education</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h5>Velalar College of Engineering and Technology</h5>
+                                    <p>8.5 CGPA</p>
+                                    <p>2024-2027 | ECE</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h5>Arighnar Anna Government Boys Higher secondary school</h5>
+                                    <p>2023 | Maths Biology</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Internship</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h5>Flutter Developer</h5>
+                                    <p>2024</p>
+                                    <p>Developed 3 Flutter Apps</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Technical Skills</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h5>Python</h5>
+                                    <p>40%</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h5>Front-End Developer</h5>
+                                    <p>50%</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h5>Futter Development</h5>
+                                    <p>Beginner</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Certifications</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h5>Python</h5>
+                                    <p>August 2023</p>
+                                    <p>Guvi</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h5>Cash Course on Python</h5>
+                                    <p>July 2024</p>
+                                    <p>Coursera</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h5>Flutter Developer</h5>
+                                    <p>Jan 2025</p>
+                                    <p>Codsoft</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Languages</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h5>English</h5>
+                                    <p>80%</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h5>Tamil</h5>
+                                    <p>100%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal Template -->
+    <div class="modal fade" id="projectModal1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Project Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Music Player</h3>
+                    <img src="1.png" class="img-fluid mb-3" alt="Project 1">
+                    <p>Detailed project description...</p>
+                    <h5>Technologies Used</h5>
+                    <ul>
+                        <li>HTML5/CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="projectModal2">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Project Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Expenses App</h3>
+                    <img src="2.png" class="img-fluid mb-3" alt="Project 2">
+                    <p>Detailed project description...</p>
+                    <h5>Technologies Used</h5>
+                    <ul>
+                        <li>HTML5/CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="projectModal3">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Project Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>To-Do App</h3>
+                    <img src="3.png" class="img-fluid mb-3" alt="Project 3">
+                    <p>Detailed project description...</p>
+                    <h5>Technologies Used</h5>
+                    <ul>
+                        <li>HTML5/CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals (same as before) -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const navbar = document.querySelector('.navbar');
+
+            // Initialize theme
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            body.setAttribute('data-theme', currentTheme);
+            updateToggleIcon();
+
+            themeToggle.addEventListener('click', () => {
+                const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateToggleIcon();
+            });
+
+            function updateToggleIcon() {
+                const icon = themeToggle.querySelector('i');
+                if (body.getAttribute('data-theme') === 'dark') {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+                // Update navbar toggler icon color
+                const togglerIcon = document.querySelector('.navbar-toggler-icon');
+                togglerIcon.style.backgroundImage = `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='${body.getAttribute('data-theme') === 'dark' ? '%23ffffff' : '%23000000'}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")`;
+            }
+        });
+    </script>
+</body>
+</html>
